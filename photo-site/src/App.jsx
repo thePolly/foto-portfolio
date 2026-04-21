@@ -1,12 +1,34 @@
 export default function PhotographyPortfolio() {
-  const portfolioImages = [
-    "/images/portfolio-1.jpg",
-    "/images/portfolio-2.jpg",
-    "/images/portfolio-3.jpg",
-    "/images/portfolio-4.jpg",
-    "/images/portfolio-5.jpg",
-    "/images/portfolio-6.jpg",
-  ];
+const portfolioItems = [
+
+ { type: "image", src: "/images/portfolio-2.jpg" },
+
+  { type: "block", text: "Zurich" },
+
+  { type: "image", src: "/images/portfolio-4.jpg" },
+
+  
+
+  { type: "image", src: "/images/portfolio-6.jpg" },
+
+
+
+  { type: "image", src: "/images/portfolio-1.jpg" },
+    { type: "block", text: "" },
+
+  { type: "image", src: "/images/portfolio-5.jpg" },
+
+  { type: "image", src: "/images/portfolio-9.jpg" },
+
+   { type: "image", src: "/images/portfolio-8.jpg" },
+  
+
+  { type: "image", src: "/images/portfolio-7.jpg" },
+
+    { type: "block", text: "Aargau" },
+ { type: "image", src: "/images/portfolio-3.jpg" },
+  
+];
 
   return (
     <div className="bg-[#f5efe6] text-[#3b3128]">
@@ -59,38 +81,34 @@ export default function PhotographyPortfolio() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
-         
+<section id="about" className="mx-auto max-w-7xl px-0 py-20 md:py-28">
+  <div className="grid md:grid-cols-2 min-h-[500px]">
 
-         <div className="relative">
+    {/* LEFT — IMAGE */}
+    <div className="relative">
+      <img
+        src="/images/me.jpg"
+        alt="Polina Katkova"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      
+      {/* dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+    </div>
 
-  <p className="mb-6 font-body text-[11px] font-light uppercase tracking-[0.35em] text-[#8a7768]">
+    {/* RIGHT — TEXT */}
+    <div className="flex items-center px-6 md:px-16 py-10 bg-[#f5efe6]">
+      <div>
+        <p className="font-body text-[11px] uppercase tracking-[0.35em] text-[#8a7768]">
+          About
+        </p>
 
-    About Me
+        <h2 className="mt-4 font-display text-4xl font-light md:text-6xl">
+          Hi, I’m Polina
+        </h2>
 
-  </p>
-
-  <div className="overflow-hidden rounded-[1.75rem] bg-[#ece2d6]">
-
-    <img
-
-      src="/images/me.jpg"
-
-      alt="Polina Katkova"
-
-      className="w-full h-[420px] object-cover"
-
-    />
-
-  </div>
-
-</div>
-
-          <div>
-            <p className="font-body text-base font-light leading-8 text-[#66584d]">
-            Hi, I’m Polina, a photographer based in Switzerland (Aargau).
-
+        <p className="mt-6 font-body text-base leading-8 text-[#66584d]">
+        
 With a background in art, I have a strong eye for light, composition, and detail.
 I focus on capturing natural moments and real emotions in a simple and honest way.
 
@@ -100,13 +118,16 @@ If you have any questions, feel free to <a
   href="#contact"
   className="mt-10 font-body text-sm underline underline-offset-4 text-[#d6c5b2] hover:opacity-70 transition"
 > Reach out  🙂 </a>
- 
-            </p>
-          </div>
-        </div>
-      </section>
+        </p>
+      </div>
+    </div>
 
-      <section id="portfolio" className="mx-auto max-w-7xl px-6 pb-20 md:px-10 md:pb-28">
+  </div>
+</section>
+
+    
+
+      <section id="portfolio" className="mx-auto max-w-7xl px-0 pb-10 md:px-0 md:pb-10">
         <div className="mb-10 flex items-end justify-between gap-6">
           <div>
             <p className="font-body text-[11px] font-light uppercase tracking-[0.35em] text-[#8a7768]">
@@ -118,20 +139,64 @@ If you have any questions, feel free to <a
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {portfolioImages.map((image, index) => (
-            <div key={index} className="overflow-hidden rounded-[1.75rem] bg-[#ece2d6]">
-              <img
-                src={image}
-                alt={`Portfolio ${index + 1}`}
-                className="h-[420px] w-full object-cover transition duration-700 hover:scale-[1.03]"
-              />
-            </div>
-          ))}
+        <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-3">
+         {portfolioItems.map((item, index) => {
+
+  if (item.type === "image") {
+
+    return (
+
+      <div key={index} className="overflow-hidden">
+
+        <img
+
+          src={item.src}
+
+          alt={`Portfolio ${index}`}
+
+          className="h-[420px] w-full object-cover"
+
+        />
+
+      </div>
+
+    );
+
+  }
+
+  if (item.type === "block") {
+
+   if (item.type === "block") {
+
+  return (
+
+    <div
+
+      key={index}
+
+      className="h-[420px] bg-[#e9ddd0] flex items-center justify-center"
+
+    >
+
+      <p className="font-body text-sm text-[#66584d] uppercase tracking-[0.3em]">
+
+        {item.text}
+
+      </p>
+
+    </div>
+
+  );
+
+}
+
+  }
+
+})}
         </div>
       </section>
 
-<section id="services" className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+<section id="services" className="mx-auto max-w-6xl px-6 py-10 md:px-10 md:py-14">
   <div className="mb-12">
     <p className="font-body text-[11px] font-light uppercase tracking-[0.35em] text-[#8a7768]">
       Services
