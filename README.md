@@ -2,7 +2,7 @@
 
 Minimalistic photography portfolio website built with React and Vite.
 
-Live demo: [[your-link-here]](https://foto-portfolio-two.vercel.app/)
+[[Live demo]](https://foto-portfolio-two.vercel.app/)
 
 ---
 
