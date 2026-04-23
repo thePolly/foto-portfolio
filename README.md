@@ -60,7 +60,7 @@ Images are stored in `/public/images` and rendered dynamically.
 Clone the repository:
 
 ```
-git clone [https://github.com/your-username/your-repo.git](https://github.com/thePolly/foto-portfolio.git)
+git clone https://github.com/thePolly/foto-portfolio.git
 ```
 
 Install dependencies:
